@@ -1,29 +1,34 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-const int MAX_SIZE = 1000;
 
 int main() {
-    int n, q;
-    cin >> n >> q;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int n, queries;
+    cin >> n >> queries;
 
-    int arrays[n][MAX_SIZE];
-    int lengths[n];
+    vector<vector<int>> arr(n);
 
-    for (int i = 0; i < n; i++) {
-        int k;
-        cin >> k;
-        lengths[i] = k;
-        for (int j = 0; j < k; j++) {
-            cin >> arrays[i][j];
-        }
+    for (int i = 0; i < n; i++)
+    {
+        int length;
+        cin >> length;
+        arr[i].resize(length);
+        for(int j = 0; j < length; j++)
+        {
+            cin >> arr[i][j];
+        }       
     }
 
-    for (int i = 0; i < q; i++) {
-        int x, y;
-        cin >> x >> y;
-        cout << arrays[x][y] <<endl;
-    }
-
+    for (int k = 0; k < queries; k++)
+    {
+        int i, j;
+        cin >> i >> j;
+        cout << arr[i][j]<<endl;
+    }    
     return 0;
 }
